@@ -1,30 +1,27 @@
-// Add imports above this line
-import { galleryItems } from './gallery-items';
 import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
+// Add imports above this line
+import { galleryItems } from './gallery-items';
 // Change code below this line
 
 
 const galleryEl = document.querySelector(".gallery");
 
-for (let index = 0; index < galleryItems.length; index++) {
-    const element = galleryItems[index];
 
-    const preview = element.preview;
-    const image = document.createElement("img");
-    const div = document.createElement("div");
-    const link = document.createElement("a");
+const createItem = galleryItems.map((el, index) =>
+    `<div class="gallery__item"> 
+    <a class="gallery__link" href="${el.original}"> 
+    <img class="gallery__image" src="${el.preview}" 
+    data-source="${el.original}"
+    data-index="${index}"
+    alt="${el.description}"/></a></div>`).join('');
 
-    image.src = preview;
-    image.alt = "Image description";
-    link.href = element.original;
-    
-    image.classList.add("gallery__image");
-    link.classList.add("gallery__item");
+galleryEl.insertAdjacentHTML('beforeend', createItem);
 
-    
-    link.appendChild(image);
-    galleryEl.appendChild(link);
-};
+const lightbox = new SimpleLightbox('.gallery a', { captionsData:'alt', captionDelay:250});
+lightbox.on('show.simplelightbox');
 
+
+console.log(galleryEl);
 console.log(galleryItems);

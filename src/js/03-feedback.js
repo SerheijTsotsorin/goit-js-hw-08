@@ -26,7 +26,7 @@ function onTextareaInput (evt) {
 function onFormSubmit(evt) {
     evt.preventDefault();
     evt.currentTarget.reset();
-    localStorage.removeItem(STORAGE_KEY)
+    localStorage.removeItem(STORAGE_KEY);
     console.log("отправляем форму");
 };
 

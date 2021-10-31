@@ -32,4 +32,4 @@ var i=require("./debounce"),e=require("./isObject"),n="Expected a function";func
 },{"./debounce":"CXfR","./isObject":"u9vI"}],"TTyb":[function(require,module,exports) {
 "use strict";var e=t(require("lodash/throttle"));function t(e){return e&&e.__esModule?e:{default:e}}const o="feedback-form-state",r={form:document.querySelector(".feedback-form"),textarea:document.querySelector(".feedback-form textarea")},a={};function n(e){const t=e.target.value;localStorage.setItem(o,t),console.log(t)}function l(e){e.preventDefault(),e.currentTarget.reset(),localStorage.removeItem(o),console.log("отправляем форму")}function c(){const e=localStorage.getItem(o);e&&(r.textarea.value=e),console.log(e)}c(),r.form.addEventListener("submit",l),r.textarea.addEventListener("input",(0,e.default)(n,500)),r.form.addEventListener("input",e=>{a[e.target.name]=e.target.value,console.log(a)});
 },{"lodash/throttle":"Ywd4"}]},{},["TTyb"], null)
-//# sourceMappingURL=/goit-js-hw-08/03-feedback.791de029.js.map
+//# sourceMappingURL=/goit-js-hw-08/03-feedback.f4c46979.js.map
